@@ -1,7 +1,5 @@
 #Logan Ward | ID: B01886641
-#Python Programming Basics
-#Task 8
-#08/10/2026
+#Task 1: Security Tool
 
 #authenticate user funciton
 def user_authentication(correct_username, correct_password):
