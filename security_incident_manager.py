@@ -1,5 +1,5 @@
 #Logan Ward | ID: B01886641
-#Task 4: Security Incident Manager
+#Task 4: Security Incident Manager 
 
 #update the risk level of the incident
 def update_risk_level(incident: dict, new_risk_level: str) -> dict:
