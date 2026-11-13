@@ -1,3 +1,6 @@
+#Logan Ward | ID: B01886641
+#Task 5: Cyber Security Utilities (module)
+
 import random
 import string
  
