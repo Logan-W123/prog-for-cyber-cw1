@@ -1,50 +1,75 @@
 #Logan Ward | ID: B01886641
-#Functions and Exception Handling
-#Task 4
-#31/10/2026
+#Week 3 | Password String Analysis
+#23/10/2026
+#task 4
+
+import random
+import socket
+from datetime import datetime
 
 
-#check if the IP is valid
-def Validate_IP(ip_address):
+    #get the local IP address of the machine
+def get_ip_address():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    ip_address = s.getsockname()[0]
+    s.close()
+    return ip_address
+
+
+    #generate a random 4-digit event ID
+def get_event_id():
+    return random.randint(1000, 9999)
+
+
+    #get the current timestamp in a readable format
+def get_timestamp():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    
-    ip_address = ip_address.strip()
-    
-    if "." not in ip_address:
-        return False
-    
-    
-    if ip_address.count(".") != 3:
-        return False
-    
-    octet = ip_address.split(".")
-    
-    if len(octet) != 4:
-        return False
-    
-    for i in octet:
-        if not i.isdigit():
-            return False
-                
-        number = int(i)
+
+def check_login(correct_username, correct_password):
+    while True:
         
-        if number <0 or number >255:
-            return False
-             
-    return True
+        event_id = get_event_id()
+        ip_address = get_ip_address()
+        timestamp = get_timestamp()
+        
+        username = input("\nEnter username: ")
+        password = input("Enter password: ")
+        
+        if username == correct_username and password == correct_password:
+            print("Login successful!")
+            event_log(event_id, username, ip_address, "Successful login", timestamp)
+            return True
+        
+        else:
+            print("Login failed! Please try again.")
+            event_log(event_id, username, ip_address, "Failed login", timestamp)
 
-def main() -> None:
-    
-    #ask user for an ip address
-    ip_address = input("Enter an IP address: ")
+
+def event_log(event_id, username, ip_address, event, timestamp):
     
     
-    #display the results
-    if Validate_IP(ip_address):
-        print("Valid IP address")
-    else:
-        print("Invalid IP address")
+    #display event log
+    print("EVENT LOG")
+    print("==========")
+   
+    print(f"Event ID: {event_id}")
+    print(f"Username: {username}")
+    print(f"IP Address: {ip_address}")
+    print(f"Event: {event}")
+    print(f"Timestamp: {timestamp}")
+
+
+def main ()-> None:
+    
+    correct_username = "admin"
+    correct_password = "P@ssw0rd123"
+
+    
+    check_login(correct_username, correct_password)
     
     
 if __name__ == "__main__":
     main()
+
