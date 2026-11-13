@@ -1,0 +1,35 @@
+# Byte-compiled / optimised files
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / Packaging / Build artefacts
+dist/
+build/
+*.egg-info/
+*.whl
+*.tar.gz
+*.zip
+site/
+.cache/
+
+# Virtual Environments
+.venv/
+.standard/
+env/
+venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+app_errors.log
+
+# Environment Variables & Secrets
+.env
+
+# VS Code (ignore user settings, keep launch configs if sharing with students)
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
