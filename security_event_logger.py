@@ -1,7 +1,5 @@
 #Logan Ward | ID: B01886641
-#Week 3 | Password String Analysis
-#23/10/2026
-#task 4
+#Task 2: Security Event Logger
 
 import random
 import socket
